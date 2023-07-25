@@ -26,5 +26,13 @@
         "psr-4": {
             "DbalObjects\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "unit-tests": [
+            "vendor/bin/phpunit --config phpunit.xml --testsuite unit"
+        ],
+        "integration-tests": [
+            "vendor/bin/phpunit --config phpunit.xml --testsuite integration"
+        ]
     }
 }
