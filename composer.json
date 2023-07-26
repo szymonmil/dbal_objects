@@ -1,5 +1,5 @@
 {
-    "name": "szymonmil/dbal-objects",
+    "name": "szymonmil/doctrine-mapper",
     "description": "Package automatically converting results of dbal queries into DTOs",
     "type": "library",
     "license": "MIT",

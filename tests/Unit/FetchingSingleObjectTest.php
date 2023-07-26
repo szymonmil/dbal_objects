@@ -63,6 +63,22 @@ class FetchingSingleObjectTest extends TestCase
         $this->assertEquals($secondExpected, $secondObject);
     }
 
+    public function testReturnNullIfNoResults(): void
+    {
+        /** @Given */
+        $result = Mockery::mock(Result::class);
+        $result
+            ->expects('fetchAssociative')
+            ->withAnyArgs()
+            ->andReturnFalse();
+
+        /** @When */
+        $actual = $this->serviceUnderTest->fetchObject($result, Person::class);
+
+        /** @Then */
+        $this->assertNull($actual);
+    }
+
     public function testThrowErrorOnNotProvidedNotNullableProperty(): void
     {
         /** @Given */
