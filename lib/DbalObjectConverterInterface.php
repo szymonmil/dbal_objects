@@ -7,11 +7,12 @@ use Doctrine\DBAL\Result;
 interface DbalObjectConverterInterface
 {
     /**
-     * @template Class
+     * Fetch single object as an object. You can run it in iterate way with same $result, and you will get next rows
      *
-     * @param class-string<Class> $className
+     * @template TClass of object
+     * @param class-string<TClass> $className
      *
-     * @return Class
+     * @return TClass | null Returns null if there is no results
      */
-    public function fetchObject(Result $result, string $className): object;
+    public function fetchObject(Result $result, string $className): ?object;
 }

@@ -10,16 +10,13 @@ use ReflectionClass;
 
 class DbalObjectConverter implements DbalObjectConverterInterface
 {
-    /**
-     * @template Class
-     *
-     * @param class-string<Class> $className
-     *
-     * @return Class
-     */
-    public function fetchObject(Result $result, string $className): object
+    public function fetchObject(Result $result, string $className): ?object
     {
         $arrayValue = $result->fetchAssociative();
+
+        if ($arrayValue === false) {
+            return null;
+        }
 
         $objectToReturn = new $className;
 
