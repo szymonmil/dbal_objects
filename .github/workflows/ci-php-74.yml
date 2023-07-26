@@ -42,5 +42,5 @@ jobs:
     - name: Run integration tests
       run: composer run-script integration-tests
       
-    - name: Run PHPStan checks
-      run: vendor/bin/phpstan analyse --level 9 lib/
+    - name: Run Static analysis
+      run: composer run-script static-analysis

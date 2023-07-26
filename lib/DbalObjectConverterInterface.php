@@ -1,6 +1,6 @@
 <?php
 
-namespace DbalObjects\Lib;
+namespace DoctrineMapper\Lib;
 
 use Doctrine\DBAL\Result;
 

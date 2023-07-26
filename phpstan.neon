@@ -1,0 +1,9 @@
+parameters:
+	level: 9
+	paths:
+		- lib
+		- tests
+
+includes:
+    - vendor/phpstan/phpstan-mockery/extension.neon
+    - phpstan-baseline.neon

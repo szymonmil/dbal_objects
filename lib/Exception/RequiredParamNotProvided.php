@@ -1,6 +1,6 @@
 <?php
 
-namespace DbalObjects\Lib\Exception;
+namespace DoctrineMapper\Lib\Exception;
 
 use RuntimeException;
 

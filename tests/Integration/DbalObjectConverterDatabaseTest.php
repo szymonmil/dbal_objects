@@ -1,9 +1,9 @@
 <?php
 
-namespace DbalObjects\Tests\Integration;
+namespace DoctrineMapper\Tests\Integration;
 
-use DbalObjects\Lib\Service\DbalObjectConverter;
-use DbalObjects\Tests\Integration\Fixture\User;
+use DoctrineMapper\Lib\Service\DoctrineObjectMapper;
+use DoctrineMapper\Tests\Integration\Fixture\User;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class DbalObjectConverterDatabaseTest extends TestCase
 {
     private Connection $connection;
-    private DbalObjectConverter $serviceUnderTest;
+    private DoctrineObjectMapper $serviceUnderTest;
 
     protected function tearDown(): void
     {
@@ -25,7 +25,7 @@ class DbalObjectConverterDatabaseTest extends TestCase
             'path' => __DIR__ . '/db.sqlite',
         ]);
 
-        $this->serviceUnderTest = new DbalObjectConverter();
+        $this->serviceUnderTest = new DoctrineObjectMapper();
     }
 
     public function testFetchSingleObject(): void

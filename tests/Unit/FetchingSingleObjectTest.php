@@ -1,28 +1,29 @@
 <?php
 
-namespace DbalObjects\Tests\Unit;
+namespace DoctrineMapper\Tests\Unit;
 
-use DbalObjects\Lib\Exception\NotTypedClassProperty;
-use DbalObjects\Lib\Exception\RequiredParamNotProvided;
-use DbalObjects\Lib\Service\DbalObjectConverter;
-use DbalObjects\Tests\Unit\Fixture\ClassWithNotTypedProperty;
-use DbalObjects\Tests\Unit\Fixture\Person;
+use DoctrineMapper\Lib\Exception\NotTypedClassProperty;
+use DoctrineMapper\Lib\Exception\RequiredParamNotProvided;
+use DoctrineMapper\Lib\Service\DoctrineObjectMapper;
+use DoctrineMapper\Tests\Unit\Fixture\ClassWithNotTypedProperty;
+use DoctrineMapper\Tests\Unit\Fixture\Person;
 use Doctrine\DBAL\Result;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
 class FetchingSingleObjectTest extends TestCase
 {
-    private DbalObjectConverter $serviceUnderTest;
+    private DoctrineObjectMapper $serviceUnderTest;
 
     protected function setUp(): void
     {
-        $this->serviceUnderTest = new DbalObjectConverter();
+        $this->serviceUnderTest = new DoctrineObjectMapper();
     }
 
     public function testConvertToSingleObjectWithPublicProperties(): void
     {
         /** @Given */
+        /** @var Result & Mockery\MockInterface $result */
         $result = Mockery::mock(Result::class);
         $result
             ->expects('fetchAssociative')

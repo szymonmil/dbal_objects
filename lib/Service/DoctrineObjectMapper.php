@@ -1,14 +1,14 @@
 <?php
 
-namespace DbalObjects\Lib\Service;
+namespace DoctrineMapper\Lib\Service;
 
-use DbalObjects\Lib\DbalObjectConverterInterface;
-use DbalObjects\Lib\Exception\NotTypedClassProperty;
-use DbalObjects\Lib\Exception\RequiredParamNotProvided;
+use DoctrineMapper\Lib\DbalObjectConverterInterface;
+use DoctrineMapper\Lib\Exception\NotTypedClassProperty;
+use DoctrineMapper\Lib\Exception\RequiredParamNotProvided;
 use Doctrine\DBAL\Result;
 use ReflectionClass;
 
-class DbalObjectConverter implements DbalObjectConverterInterface
+class DoctrineObjectMapper implements DbalObjectConverterInterface
 {
     public function fetchObject(Result $result, string $className): ?object
     {

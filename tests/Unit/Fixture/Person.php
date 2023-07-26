@@ -1,6 +1,6 @@
 <?php
 
-namespace DbalObjects\Tests\Unit\Fixture;
+namespace DoctrineMapper\Tests\Unit\Fixture;
 
 class Person
 {

@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property DoctrineMapper\\\\Tests\\\\Unit\\\\Fixture\\\\ClassWithNotTypedProperty\\:\\:\\$age has no type specified\\.$#"
+			count: 1
+			path: tests/Unit/Fixture/ClassWithNotTypedProperty.php
+
+		-
+			message: "#^Property DoctrineMapper\\\\Tests\\\\Unit\\\\Fixture\\\\ClassWithNotTypedProperty\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: tests/Unit/Fixture/ClassWithNotTypedProperty.php
+
+		-
+			message: "#^Property DoctrineMapper\\\\Tests\\\\Unit\\\\Fixture\\\\ClassWithNotTypedProperty\\:\\:\\$name has no type specified\\.$#"
+			count: 1
+			path: tests/Unit/Fixture/ClassWithNotTypedProperty.php
