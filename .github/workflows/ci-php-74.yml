@@ -1,4 +1,4 @@
-name: Tests
+name: PHP 7.4 CI
 
 on:
   push:
@@ -17,6 +17,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Setup PHP 7.4
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -38,3 +43,6 @@ jobs:
       
     - name: Run integration tests
       run: composer run-script integration-tests
+      
+    - name: Run PHPStan checks
+      run: vendor/bin/phpstan analyse --level 9
