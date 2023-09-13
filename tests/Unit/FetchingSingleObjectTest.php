@@ -5,6 +5,7 @@ namespace DoctrineMapper\Tests\Unit;
 use DoctrineMapper\Lib\Exception\NotTypedClassProperty;
 use DoctrineMapper\Lib\Exception\RequiredParamNotProvided;
 use DoctrineMapper\Lib\Service\DoctrineObjectMapper;
+use DoctrineMapper\Tests\Unit\Fixture\ClassWithConstructor;
 use DoctrineMapper\Tests\Unit\Fixture\ClassWithNotTypedProperty;
 use DoctrineMapper\Tests\Unit\Fixture\Person;
 use Doctrine\DBAL\Result;
@@ -23,7 +24,6 @@ class FetchingSingleObjectTest extends TestCase
     public function testConvertToSingleObjectWithPublicProperties(): void
     {
         /** @Given */
-        /** @var Result & Mockery\MockInterface $result */
         $result = Mockery::mock(Result::class);
         $result
             ->expects('fetchAssociative')
@@ -62,6 +62,30 @@ class FetchingSingleObjectTest extends TestCase
         /** @Then */
         $this->assertEquals($firstExpected, $firstObject);
         $this->assertEquals($secondExpected, $secondObject);
+    }
+
+    public function testConvertToSingleObjectWithConstructor(): void
+    {
+        /** @Given */
+        $result = Mockery::mock(Result::class);
+        $result
+            ->expects('fetchAssociative')
+            ->withAnyArgs()
+            ->andReturn(
+                [
+                    'name' => 'John',
+                    'age' => '25.5',
+                    'id' => '20',
+                ]
+            );
+
+        $firstExpected = new ClassWithConstructor(20, 'John', 25.5);
+
+        /** @When */
+        $actual = $this->serviceUnderTest->fetchObject($result, ClassWithConstructor::class);
+
+        /** @Then */
+        $this->assertEquals($firstExpected, $actual);
     }
 
     public function testReturnNullIfNoResults(): void
