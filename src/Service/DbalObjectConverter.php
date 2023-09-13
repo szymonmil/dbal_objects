@@ -8,7 +8,7 @@ use DoctrineMapper\Lib\Exception\RequiredParamNotProvided;
 use Doctrine\DBAL\Result;
 use ReflectionClass;
 
-class DoctrineObjectMapper implements DbalObjectConverterInterface
+class DbalObjectConverter implements DbalObjectConverterInterface
 {
     public function fetchObject(Result $result, string $className): ?object
     {

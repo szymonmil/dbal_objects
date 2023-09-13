@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        public: false
+
+    DoctrineMapper\Lib\Service\DbalObjectConverter: ~
+
+    DoctrineMapper\Lib\DbalObjectConverterInterface:
+        alias: 'DoctrineMapper\Lib\Service\DbalObjectConverter'
+        public: true
+
+    doctrine_mapper.dbal_object_converter:
+        alias: 'DoctrineMapper\Lib\DbalObjectConverterInterface'
+        public: true

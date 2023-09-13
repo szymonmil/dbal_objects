@@ -4,7 +4,7 @@ namespace DoctrineMapper\Tests\Unit;
 
 use DoctrineMapper\Lib\Exception\NotTypedClassProperty;
 use DoctrineMapper\Lib\Exception\RequiredParamNotProvided;
-use DoctrineMapper\Lib\Service\DoctrineObjectMapper;
+use DoctrineMapper\Lib\Service\DbalObjectConverter;
 use DoctrineMapper\Tests\Unit\Fixture\ClassWithConstructor;
 use DoctrineMapper\Tests\Unit\Fixture\ClassWithNotTypedProperty;
 use DoctrineMapper\Tests\Unit\Fixture\Person;
@@ -14,11 +14,11 @@ use PHPUnit\Framework\TestCase;
 
 class FetchingSingleObjectTest extends TestCase
 {
-    private DoctrineObjectMapper $serviceUnderTest;
+    private DbalObjectConverter $serviceUnderTest;
 
     protected function setUp(): void
     {
-        $this->serviceUnderTest = new DoctrineObjectMapper();
+        $this->serviceUnderTest = new DbalObjectConverter();
     }
 
     public function testConvertToSingleObjectWithPublicProperties(): void

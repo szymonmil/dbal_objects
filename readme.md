@@ -29,6 +29,7 @@ class Person
 ```
 
 #### 2. Write your SQL query, get result from DBAL and pass it to DoctrineObjectMapper
+
 ```php
 $sql = <<<SQL
     SELECT
@@ -41,7 +42,7 @@ SQL;
 
 $result = $connection->executeQuery($sql);
 
-$doctrineMapper = new \DoctrineMapper\Lib\Service\DoctrineObjectMapper() // You can also inject this service in Symfony DI
+$doctrineMapper = new \DoctrineMapper\src\Service\DoctrineObjectMapper() // You can also inject this service in Symfony DI
 
 $firstPerson = $doctrineMapper->fetchObject($result, Some\Namespace\Person::class);
 ```
